@@ -1,0 +1,222 @@
+@import 'nib'
+
+@font-face
+    font-family: "Futura";
+    src: url('Futura.ttf');
+
+
+global-reset()
+
+red = #e51c23
+yellow = #FCEC00
+lightBlue = #03a9f4
+cyan = #00bcd4
+blue = #5677fc
+green = #259b24
+orange = #ff9800
+grey = #eeeeee
+indigo = #3f51b5
+
+html
+	min-height 100% 
+	
+body
+	position absolute
+	width 100%
+	height 100%
+	background yellow
+	box-shadow inset 0 0 250px 15px rgba(0,0,0,.2)   
+	user-select none
+	cursor default
+	&.on
+		.utopia
+			&:after
+				transform scale(1)
+		.button
+			&:before
+				transform scale(0)
+.wrapper
+	z-index 1
+	position absolute
+	left 50%
+	top 50%
+	transform translateX(-50%) translateY(-50%)
+	
+.button,
+.utopia
+	font-family Futura 
+	font-weight bold
+	letter-spacing 5px
+	
+	
+
+.button
+	letter-spacing 24px
+	text-transform uppercase 
+	font-size 12*8px
+	&:after
+		content '3'
+		position relative
+		display block
+		position absolute
+		font-size 24px
+		right -6px
+		top -12px
+		
+hr
+	border-style solid 
+	margin-top 40px
+
+	
+.utopia
+	font-size 0px
+	text-align center
+	margin-top 40px
+	min-height 100px
+	transition 500ms
+	&:before
+		content ""
+		width 40px
+		height @width
+		left 50%
+		margin-left -20px
+		margin-top 20px
+		background #000
+		position absolute
+		border-radius 50%
+		opacity 0.8
+		transition 500ms
+		animation pulse 1s infinite
+	&:after
+		content "spoons use so far"
+		transform scale(0)
+		font-size 12*3px
+		letter-spacing 2px 
+		position absolute
+		width 100%
+		left 0
+		margin-top 100px
+		text-align center
+		transition 600ms
+	&.on
+		font-size 12*8px
+		&:before
+			opacity 0 !important
+.overlay
+	z-index 2
+	transition 500ms
+
+	position fixed
+	width 100%
+	height 100%
+	top 0
+	left 0
+	background rgba(0,0,0,.75)
+	&.on
+		opacity 0
+		z-index -1
+	&.off
+		label
+			opacity 1
+			transform translateY(-50%) translateX(-50%)	scale(1)
+label	
+	position absolute
+	left 50% 
+	top 50%
+	transform translateY(-50%) translateX(-50%)	scale(0)
+	opacity 0
+	transition 500ms
+.question	
+	margin-top -40px
+	left -25%
+	width 150%
+.submit	
+	background rgba(0,0,0,.5) 
+	margin-top 20px
+	width 50%
+	left 0%
+	
+	padding 10px 0 
+	border-radius 4px
+	transition 500ms
+	cursor pointer
+	margin-left -5px
+	&:hover
+		background rgba(0,0,0,.25) 
+	&.no
+		margin-left 5px
+		cursor not-allowed
+		left 50%
+		&:hover
+			opacity 0
+
+.question,
+.submit
+	position absolute
+	font-family Futura
+	letter-spacing 4px
+	font-size 24px
+	font-weight bold
+	color #fff  
+	text-align center
+	
+	
+.input
+	height 30px
+	width 200px
+	appearance none
+	background #fff
+	border none
+	box-shadow 0 0 0 1px
+	font-family Futura
+	font-weight bold
+	font-size 24px  
+
+.fanlist
+	position relative
+	font-family Futura
+	font-weight bold
+	font-size 3*12px
+	text-align center
+	margin-top 80px  
+	margin-bottom 20px
+	padding-top 20px
+	width 100%
+	max-height 200px
+	min-height 100px  
+	overflow auto
+	&:before,&:after
+		content ''
+		position absolute
+		left 0
+		display inline-block
+		width 100%
+		height 8px
+		
+	&:before
+		top 0
+		background radial-gradient(center top,rgba(#000,.25) 20%,transparent 40%) 
+	&:after
+		background radial-gradient(center bottom,rgba(#000,.25) 20%,transparent 40%) 
+		margin-top 20px
+   	
+::-webkit-scrollbar
+    width: 6px
+    border-radius 5px 
+::-webkit-scrollbar-track
+	background lighten(yellow,25%) 
+	border-radius 5px 
+	width: 6px
+::-webkit-scrollbar-thumb
+	background rgba(#000,.5)
+	border-radius 5px 
+	width: 6px
+
+video
+	display none
+
+@keyframes pulse
+	0%,100%
+		transform scale(1)
+	50%
+		transform scale(0)

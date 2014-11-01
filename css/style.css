@@ -1,0 +1,164 @@
+@font-face {
+  font-family: "Futura";
+  src: url("Futura.ttf");
+}
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+body {
+  line-height: 1;
+  color: #000;
+  background: #fff;
+}
+ol,
+ul {
+  list-style: none;
+}
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  vertical-align: middle;
+}
+caption,
+th,
+td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+a img {
+  border: none;
+}
+html {
+  min-height: 100%;
+}
+body {
+  background: -webkit-linear-gradient(135deg, #00bcd4, #5677fc);
+  background: -moz-linear-gradient(135deg, #00bcd4, #5677fc);
+  background: -o-linear-gradient(135deg, #00bcd4, #5677fc);
+  background: -ms-linear-gradient(135deg, #00bcd4, #5677fc);
+  background: linear-gradient(-45deg, #00bcd4, #5677fc);
+}
+body:before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  position: absolute;
+  background: -webkit-radial-gradient(rgba(0,0,0,0.1), transparent 50%);
+  background: -moz-radial-gradient(rgba(0,0,0,0.1), transparent 50%);
+  background: -o-radial-gradient(rgba(0,0,0,0.1), transparent 50%);
+  background: -ms-radial-gradient(rgba(0,0,0,0.1), transparent 50%);
+  background: radial-gradient(rgba(0,0,0,0.1), transparent 50%);
+  -webkit-background-size: 4px;
+  -moz-background-size: 4px;
+  background-size: 4px;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.25);
+}
+.form {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  font-family: arial;
+  text-align: center;
+  font-size: 18px;
+}
+.input {
+  margin: 10px 0;
+  width: 100%;
+  height: 30px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: none;
+  background: rgba(255,255,255,0.5);
+}
+.button {
+  background: rgba(255,255,255,0.5);
+  display: inline-block;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+}
+.button:before {
+  content: "X";
+  position: relative;
+  display: inline-block;
+}

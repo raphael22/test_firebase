@@ -1,85 +1,71 @@
 (function(){
-var _firebase  = new Firebase("https://blazing-inferno-8850.firebaseio.com/"),
-	utopia,
-	ip,
-	userToken=true;
+var _firebase  = new Firebase("https://debugword.firebaseio.com/debugwords/");
 
-_firebase.child("utopia").on("value", function(snapshot) {
-  utopia = snapshot.val();
-  $('.utopia').addClass('on').text(utopia);
-  //updateFanList();v
+var allWords;
+
+
+
+/*upvotesRef.transaction(function (current_value) {
+  return (current_value || 0) + 1;
+});*/
+
+/*_firebase.child("debugwords").push({
+	word:'toto',
+	count:1
+});*/
+
+$('.button').click(function(){
+
+	var word = $('.input').val();
+
+	checkWord(word);
+
 });
 
 
-_firebase.child("users").once("value", function(snapshot) {
-  users = snapshot.val();
-  console.log(users)
-  _.each(users,function(user,i,j){
-  	if(i!='utopia')checkUser(user);
-  });
-});
+checkWord = function(word){
+	var wordcount = 0;
+	_firebase.once("value", function(snapshot) {
 
-_firebase.child("users").on("child_added",function(snapshot){
-	var user = snapshot.val();
-	updateFanList(user);
-});
+	  allWords = snapshot.val();
 
+	  var length = Object.keys(allWords).length;
 
-pushUser = function(){	
-	_firebase.child("users").push({
-		ip:userip,
-		name:$('input').val(),
-		utopia:utopia
-	});
-}
+	  for (var i=0; i < length; i++) {
 
-checkUser = function(user){
-  	if(user.ip!==undefined){
-	  	if(user.ip==userip){
-	  		userToken=true;
-	  		$('body').addClass('on');
-	  		$('.overlay').addClass('on');
-	  	}else{
-	  		userToken=false;
-	  		setTimeout(function(){
-	  			$('.overlay').addClass('off')
-	  		},500);
+	  	var id = Object.keys(allWords)[i],
+	  		thisword = allWords[id].word;
+
+	  	console.log(allWords[Object.keys(allWords)[i]].word);
+
+	  	if(thisword == word){
+	  		wordcount++;
+	  		console.log('word known')
+
+			var wordknown  = new Firebase("https://debugword.firebaseio.com/debugwords/"+id+"/count"); 		
+			wordknown.transaction(function (current_value) {
+			  return current_value + 1;
+			});
+
 	  	}
-	}
-}
-//++ UTOPIA
-Utopia = function(){
-	if(userToken==false){
-		userToken = true;
-		utopia+=1;
 
-		_firebase.update({
-		  utopia: utopia
+	  }
+
+	  if(wordcount==0){
+	  	console.log('word unknown')
+	  	_firebase.push({
+			word:word,
+			count:1
 		});
+	  }
 
-		$('.wrapper').addClass('on');
-	}
+	});	
 }
+/*_firebase.push({
+	word:'caca',
+	count:10
+});*/
 
-//CREATE USER
-$('.submit_utopia').click(function(){
-
-	var name = $('input').val();
-
-	Utopia();
-
-	if(name.trim()!="" && name.length > 2){
-		pushUser();
-		$('body').addClass('on');
-		$('.overlay').addClass('on');
-	}
-
-});
-
-
-
-updateFanList = function(user){
-	$('.fanlist').append('<p>#'+user.utopia+' '+user.name+'</p>');
-}
 
 })();
+

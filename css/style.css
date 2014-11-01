@@ -93,3 +93,12 @@ td {
 a img {
   border: none;
 }
+body {
+  text-align: center;
+}
+.list {
+  background: #fff;
+}
+.list-item > span {
+  padding-left: 5px;
+}

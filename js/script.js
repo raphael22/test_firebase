@@ -14,6 +14,8 @@ var allWords;
 	count:1
 });*/
 
+
+
 $('.button').click(function(){
 
 	var word = $('.input').val();
@@ -61,6 +63,15 @@ checkWord = function(word){
 
 	});	
 }
+
+_firebase.on("value", function(snapshot) {
+	var words = snapshot.val();
+	$('.list').empty();
+	_.each(words,function(word){
+		$('.list').append('<div class="list-item">'+word.word+'<span>'+word.count+'</span>'+'</div>');
+	});
+});
+
 /*_firebase.push({
 	word:'caca',
 	count:10

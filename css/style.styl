@@ -17,8 +17,11 @@ orange = #ff9800
 grey = #eeeeee
 indigo = #3f51b5
 
-body
-	text-align center
+
+
+html
+	min-height 100%
+	
 
 .list
 	background #FFF 
@@ -26,3 +29,52 @@ body
 .list-item
 	> span
 		padding-left 5px
+body
+	text-align center
+	background linear-gradient(-45deg,cyan,blue)
+	&:before
+		content ''
+		width 100%
+		height 100%
+		z-index -1
+		position absolute
+		background radial-gradient(rgba(black,.1),transparent 50%)
+		background-size 4px
+
+.overlay
+	position absolute
+	top 0
+	left 0
+	width 100%
+	height 100%
+	background rgba(0,0,0,.25)  
+		
+.form
+	position absolute
+	left 50%
+	//top 50%
+	transform translateX(-50%) //translateY(-50%)
+	font-family arial
+	font-size 18px
+
+
+.input
+	margin 10px 0
+	width 100%
+	height 30px
+	border-radius 3px
+	border none
+	background rgba(white,.5) 
+	
+.button
+	background rgba(white,.5)
+	display inline-block
+	border-radius 50%
+	width 20px
+	height @width
+	text-align center
+	line-height @width  
+	&:before
+		content "X"
+		position relative
+		display inline-block 

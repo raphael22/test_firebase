@@ -93,12 +93,78 @@ td {
 a img {
   border: none;
 }
-body {
-  text-align: center;
+html {
+  min-height: 100%;
 }
 .list {
   background: #fff;
 }
 .list-item > span {
   padding-left: 5px;
+}
+body {
+  text-align: center;
+  background: -webkit-linear-gradient(135deg, #00bcd4, #5677fc);
+  background: -moz-linear-gradient(135deg, #00bcd4, #5677fc);
+  background: -o-linear-gradient(135deg, #00bcd4, #5677fc);
+  background: -ms-linear-gradient(135deg, #00bcd4, #5677fc);
+  background: linear-gradient(-45deg, #00bcd4, #5677fc);
+}
+body:before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  position: absolute;
+  background: -webkit-radial-gradient(rgba(0,0,0,0.1), transparent 50%);
+  background: -moz-radial-gradient(rgba(0,0,0,0.1), transparent 50%);
+  background: -o-radial-gradient(rgba(0,0,0,0.1), transparent 50%);
+  background: -ms-radial-gradient(rgba(0,0,0,0.1), transparent 50%);
+  background: radial-gradient(rgba(0,0,0,0.1), transparent 50%);
+  -webkit-background-size: 4px;
+  -moz-background-size: 4px;
+  background-size: 4px;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.25);
+}
+.form {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  font-family: arial;
+  font-size: 18px;
+}
+.input {
+  margin: 10px 0;
+  width: 100%;
+  height: 30px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: none;
+  background: rgba(255,255,255,0.5);
+}
+.button {
+  background: rgba(255,255,255,0.5);
+  display: inline-block;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+}
+.button:before {
+  content: "X";
+  position: relative;
+  display: inline-block;
 }
